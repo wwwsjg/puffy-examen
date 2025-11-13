@@ -1,0 +1,225 @@
+/* 1. Fonts */
+@font-face {
+  font-family: 'VC Henrietta Condensed';
+  src: url('https://fonts.cdnfonts.com/s/109203/VC-Henrietta-Condensed-Regular.woff2') format('woff2'),
+       url('https://fonts.cdnfonts.com/s/109203/VC-Henrietta-Condensed-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --title-font: 'VC Henrietta Condensed', sans-serif;
+  --body-font: 'Futura', 'Futura PT', 'Trebuchet MS', sans-serif;
+  --puffy-bg: #f6f1ea;
+  --puffy-surface: #ffffff;
+  --puffy-accent: #66A2E8;
+  --puffy-accent-dark: #1b5ca8;
+  --puffy-border: rgba(0, 0, 0, 0.05);
+  --puffy-text: #2f2a26;
+  --puffy-muted: #7a6d64;
+  --radius-lg: 18px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: var(--body-font);
+  font-weight: 400;
+  color: var(--puffy-text);
+  background: var(--puffy-bg);
+  margin: 0 auto;
+  padding: 0 12px 60px;
+  max-width: 1050px;
+}
+
+/* login */
+.login-screen {
+  max-width: 400px;
+  margin: 60px auto;
+  text-align: center;
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px 22px 18px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.login-screen h2 { font-family: var(--title-font); margin-top: 0; }
+.login-screen input[type="password"] {
+  max-width: 260px; margin-top: 8px; background: #fff;
+  border: 1px solid rgba(0,0,0,0.04); border-radius: 10px;
+  padding: 6px 9px; font-size: 0.85rem; width: 100%; font-family: var(--body-font);
+}
+.login-screen button {
+  margin: 0; height: 32px; padding: 6px 9px; background: var(--puffy-accent);
+  border: none; color: #fff; cursor: pointer; font-family: var(--body-font);
+  font-weight: 600; border-radius: 10px;
+}
+#login-error { color: red; display: none; margin-top: 8px; }
+
+/* titres */
+h1 {
+  font-family: var(--title-font);
+  font-size: 1.8rem;
+  letter-spacing: .04em;
+  margin-top: 24px;
+  margin-bottom: 18px;
+}
+h2 {
+  font-family: var(--title-font);
+  font-size: 1.15rem;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+
+/* infos générales */
+.header-grid {
+  background: var(--puffy-surface);
+  border-radius: 16px;
+  border: 1px solid var(--puffy-border);
+  padding: 14px 16px 10px;
+  display: grid;
+  gap: 12px 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  box-shadow: 0 12px 30px rgba(211, 176, 147, 0.05);
+}
+label {
+  font-size: 0.75rem;
+  color: var(--puffy-muted);
+  margin-bottom: 3px;
+  display: block;
+}
+.header-grid input[type="text"], .header-grid input[type="date"] {
+  background: #fff; border: 1px solid rgba(0,0,0,0.04); border-radius: 10px;
+  padding: 6px 9px; font-size: 0.85rem; width: 100%; font-family: var(--body-font);
+}
+ 
+/* Chrono */
+.timer-box {
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+  padding: 6px 10px;
+  display: inline-block;
+  min-width: 90px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* questions — grid 2 colonnes (question + QCM) */
+.question-row {
+  background: var(--puffy-surface);
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.015);
+  padding: 10px 10px 8px;
+  display: grid;
+  grid-template-columns: minmax(280px, 1.5fr) minmax(180px, 1fr);
+  gap: 10px;
+  align-items: flex-start;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.01);
+  margin-bottom: 9px;
+}
+
+.qa-block .question-text {
+  font-family: var(--title-font);
+  font-size: 0.9rem;
+  letter-spacing: .01em;
+  margin-bottom: 4px;
+}
+
+/* QCM block */
+.qcm-block {
+  display: grid;
+  gap: 6px;
+}
+.qcm-block label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,0,0,0.02);
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.qcm-block input[type="radio"] {
+  accent-color: var(--puffy-muted);
+  cursor: pointer;
+}
+/* .qcm-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 6px;
+  background: var(--puffy-accent);
+  color: #fff;
+  padding: 0 6px;
+} */
+
+/* --- QCM : style quand l'option est sélectionnée --- */
+.qcm-block label {
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease, box-shadow .15s ease;
+}
+
+.qcm-block label:has(input[type="radio"]:checked) {
+  /* background: var(--puffy-muted); */
+  background: var(--puffy-bg);
+}
+
+
+/* bouton enregistrer */
+.save-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--puffy-accent);
+  color: #fff;
+  padding: 10px 10px;
+  border-radius: 14px;
+  border: 2px solid var(--puffy-accent-dark);
+  cursor: pointer;
+  font-family: var(--body-font);
+  text-transform: uppercase;
+  box-shadow: -3px 3px 0 0 var(--puffy-accent-dark);
+  transition: all 0.12s ease;
+  margin: 0;
+  margin-top: 30px;
+}
+.save-btn:hover { box-shadow: -2px 2px 0 0 var(--puffy-accent-dark); transform: translateY(1px); }
+.save-btn:active { box-shadow: 0 0 0 0 var(--puffy-accent-dark); transform: translateY(2px); }
+.save-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(255,187,122,0.4); }
+
+#feedback { display: none; font-weight: 500; }
+.feedback.success { display: block; color: green; }
+.feedback.error { display: block; color: #b91c1c; }
+
+/* Footer Puffy */
+.footer { display: flex; justify-content: center; align-items: center; padding: 120px 0 30px; background: transparent; }
+.footer img { height: 70px;}
+
+/* Bouton retour en haut */
+#scrollTopBtn {
+  position: fixed; bottom: 22px; right: 22px; background: var(--puffy-accent);
+  color: #fff; border: none; border-radius: 14px; width: 42px; height: 42px; font-size: 1.1rem;
+  line-height: 1; cursor: pointer; transition: all 0.2s ease;
+}
+#scrollTopBtn svg { width: 22px; height: 22px; }
+#scrollTopBtn:hover { background: var(--puffy-accent-dark); transform: translateY(-2px); }
+#scrollTopBtn.show { opacity: 1; pointer-events: auto; }
+
+/* responsive */
+@media (max-width: 880px) {
+  .question-row { grid-template-columns: 1fr; }
+  body { padding: 0 6px 60px; }
+  .login-screen { margin: 30px auto; }
+}

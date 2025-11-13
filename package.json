@@ -1,0 +1,17 @@
+{
+  "name": "puffy-examen",
+  "version": "1.0.0",
+  "description": "Mini outil interne pour l'examen de formation Puffy",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "express": "^5.1.0"
+  }
+}
