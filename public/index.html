@@ -2,59 +2,78 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Puffy - Examen employé (QCM)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- CSS externe -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puffy — QCM Employé</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- Chronomètre barre supérieure -->
-  <!-- <div id="timer-bar">
-    <span id="timer">00:00</span>
-  </div> -->
 
-  <!-- Accès mdp -->
-  <div id="login-screen" class="login-screen">
-    <h2>Accès employé</h2>
-    <p>Entrez le mot de passe pour accéder au questionnaire.</p>
-    <input type="password" id="password-input" placeholder="Mot de passe">
-    <button id="login-btn">Valider</button>
-    <p id="login-error">Mot de passe incorrect.</p>
-  </div>
+<div id="app">
 
-  <div id="app" style="display:none;">
+  <h1 id="main-title">Puffy — QCM Employé</h1>
 
-    <h1>Puffy — QCM Employé</h1>
-
-    <!-- Infos générales -->
-    <div class="header-grid">
-      <div>
-        <label for="prenom">Prénom :</label>
-        <input type="text" id="prenom" name="prenom">
-      </div>
-      <div>
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom">
-      </div>
-      <div>
-        <label for="etablissement">Établissement :</label>
-        <input type="text" id="etablissement" name="etablissement">
-      </div>
-      <div>
-        <label for="poste">Poste :</label>
-        <input type="text" id="poste" name="poste">
-      </div>
-      <div>
-        <label for="date">Date :</label>
-        <input type="date" id="date" name="date">
-      </div>
-      <div class="chrono-field">
-        <label for="timer">Chronomètre :</label>
-        <div id="timer" class="timer-box">00:00</div>
-      </div>
+  <!--  INFOS GÉNÉRALES (visible au début)  -->
+  <div id="infos-block" class="header-grid">
+    <div>
+      <label for="prenom">Prénom :</label>
+      <input type="text" id="prenom" name="prenom">
     </div>
 
-<h2>Café</h2>
+    <div>
+      <label for="nom">Nom :</label>
+      <input type="text" id="nom" name="nom">
+    </div>
+
+    <div>
+      <label for="etablissement">Établissement :</label>
+      <input type="text" id="etablissement" name="etablissement">
+    </div>
+
+    <div>
+      <label for="poste">Poste :</label>
+      <input type="text" id="poste" name="poste">
+    </div>
+
+    <div>
+      <label for="date">Date :</label>
+      <input type="date" id="date" name="date">
+    </div>
+  </div>
+
+
+  <!--  BLOC CHRONO  -->
+  <div id="chrono-block" class="header-grid" style="display:none;">
+    <div>
+      <label>Chronomètre :</label>
+      <div id="timer" class="timer-box">00:00</div>
+    </div>
+  </div>
+
+
+  <!--  INTRO AVANT LE QCM  -->
+  <div id="intro" class="intro-block">
+    <p>
+      Cet examen QCM permet de vérifier tes connaissances Puffy (café, cookies, hygiène, situations).
+      Prends le temps de bien répondre à chaque question.  
+      Le chronomètre démarre lorsque tu cliques sur <strong>Démarrer le QCM</strong>.
+    </p>
+
+    <p>
+      Merci de renseigner tes informations avant de commencer.
+    </p>
+
+    <button id="startBtn" class="save-btn">Démarrer le QCM</button>
+    <p id="feedback" class="feedback"></p>
+  </div>
+
+
+
+  <!--  DÉBUT DE LA ZONE DES QUESTIONS  -->
+
+<div id="questions-area" style="display:none;">
+  
+<!-- <h2>Café</h2> -->
 
 <!-- Q1 -->
 <div class="question-row" data-id="Q1">
@@ -164,1716 +183,43 @@
   </div>
 </div>
 
-<!-- Q10 -->
-<div class="question-row" data-id="Q10">
-  <div class="qa-block">
-    <div class="question-text">Après nettoyage, le porte-filtre doit…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q10">
-    <label><input type="radio" name="Q10_choice" value="A"> Rester sur la machine</label>
-    <label><input type="radio" name="Q10_choice" value="B"> Rester posé sur le plan de travail</label>
-    <label><input type="radio" name="Q10_choice" value="C"> Le laisser refroidir</label>
-  </div>
-</div>
-
-<!-- Q11 -->
-<div class="question-row" data-id="Q11">
-  <div class="qa-block">
-    <div class="question-text">Si tu fais mousser le lait trop longtemps au bord sans plonger la buse…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q11">
-    <label><input type="radio" name="Q11_choice" value="A"> Tu crées des grosses bulles difficiles à intégrer</label>
-    <label><input type="radio" name="Q11_choice" value="B"> Tu obtiens une micro-mousse parfaite</label>
-    <label><input type="radio" name="Q11_choice" value="C"> Tu fais chauffer le lait correctement</label>
-  </div>
-</div>
-
-<!-- Q12 -->
-<div class="question-row" data-id="Q12">
-  <div class="qa-block">
-    <div class="question-text">L’objectif du “pschhh” sur le lait est de…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q12">
-    <label><input type="radio" name="Q12_choice" value="A"> Créer juste assez de bulles pour texturer</label>
-    <label><input type="radio" name="Q12_choice" value="B"> Faire le plus de mousse possible</label>
-    <label><input type="radio" name="Q12_choice" value="C"> Faire du bruit</label>
-  </div>
-</div>
-
-<!-- Q13 -->
-<div class="question-row" data-id="Q13">
-  <div class="qa-block">
-    <div class="question-text">Pour texturer le lait correctement, le vortex sert à…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q13">
-    <label><input type="radio" name="Q13_choice" value="A"> Mélanger bulles et lait pour obtenir une texture lisse</label>
-    <label><input type="radio" name="Q13_choice" value="B"> Faire tourner le lait pour le refroidir</label>
-    <label><input type="radio" name="Q13_choice" value="C"> Faire bouillir le lait</label>
-  </div>
-</div>
-
-<!-- Q14 -->
-<div class="question-row" data-id="Q14">
-  <div class="qa-block">
-    <div class="question-text">Une fois les bulles créées, la buse vapeur doit être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q14">
-    <label><input type="radio" name="Q14_choice" value="A"> Plongée pour créer un vortex et chauffer</label>
-    <label><input type="radio" name="Q14_choice" value="B"> Gardée au bord du lait sans bouger</label>
-    <label><input type="radio" name="Q14_choice" value="C"> La garder au centre du lait</label>
-  </div>
-</div>
-
-<!-- Q15 -->
-<div class="question-row" data-id="Q15">
-  <div class="qa-block">
-    <div class="question-text">Pour un cappuccino vs un latte, on…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q15">
-    <label><input type="radio" name="Q15_choice" value="A"> Utilise la même texture mais on s’arrête plus tôt pour garder plus de mousse</label>
-    <label><input type="radio" name="Q15_choice" value="B"> Change la recette de lait</label>
-    <label><input type="radio" name="Q15_choice" value="C"> Utiliser la même mousse pour toutes les boissons</label>
-  </div>
-</div>
-
-<!-- Q16 -->
-<div class="question-row" data-id="Q16">
-  <div class="qa-block">
-    <div class="question-text">La buse vapeur après chaque boisson doit être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q16">
-    <label><input type="radio" name="Q16_choice" value="A"> Essuyée + purge vapeur</label>
-    <label><input type="radio" name="Q16_choice" value="B"> Juste essuyée</label>
-    <label><input type="radio" name="Q16_choice" value="C"> La laisser sécher à l’air libre</label>
-  </div>
-</div>
-
-<!-- Q17 -->
-<div class="question-row" data-id="Q17">
-  <div class="qa-block">
-    <div class="question-text">Le matcha doit être conservé…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q17">
-    <label><input type="radio" name="Q17_choice" value="A"> Au frais, à l’abri de la lumière</label>
-    <label><input type="radio" name="Q17_choice" value="B"> À température ambiante près de la machine</label>
-    <label><input type="radio" name="Q17_choice" value="C"> Au chaud sur la machine à café</label>
-  </div>
-</div>
-
-<!-- Q18 -->
-<div class="question-row" data-id="Q18">
-  <div class="qa-block">
-    <div class="question-text">Faire le nettoyage “produit café” du groupe une fois par semaine…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q18">
-    <label><input type="radio" name="Q18_choice" value="A"> N’est pas suffisant pour Puffy</label>
-    <label><input type="radio" name="Q18_choice" value="B"> Est largement suffisant</label>
-    <label><input type="radio" name="Q18_choice" value="C"> Optionnelle</label>
-  </div>
-</div>
-
-<!-- Q19 -->
-<div class="question-row" data-id="Q19">
-  <div class="qa-block">
-    <div class="question-text">Une préparation de matcha en biberon doit être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q19">
-    <label><input type="radio" name="Q19_choice" value="A"> Conservée au frais</label>
-    <label><input type="radio" name="Q19_choice" value="B"> Conservée à température ambiante</label>
-    <label><input type="radio" name="Q19_choice" value="C"> Conservée avec le packaging</label>
-  </div>
-</div>
-
-<!-- Q20 -->
-<div class="question-row" data-id="Q20">
-  <div class="qa-block">
-    <div class="question-text">Le produit de nettoyage “café” sert à…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q20">
-    <label><input type="radio" name="Q20_choice" value="A"> Nettoyer groupes et porte-filtres</label>
-    <label><input type="radio" name="Q20_choice" value="B"> Nettoyer le lait dans la buse vapeur</label>
-    <label><input type="radio" name="Q20_choice" value="C"> Décaper la machine à milk shake</label>
-  </div>
-</div>
-
-<!-- Q21 -->
-<div class="question-row" data-id="Q21">
-  <div class="qa-block">
-    <div class="question-text">Le matcha perd sa couleur et son goût si…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q21">
-    <label><input type="radio" name="Q21_choice" value="A"> Il prend la chaleur, la lumière et l’air</label>
-    <label><input type="radio" name="Q21_choice" value="B"> Il est conservé au frais dans un contenant fermé</label>
-    <label><input type="radio" name="Q21_choice" value="C"> Il est conservé à température ambiante</label>
-  </div>
-</div>
-
-<!-- Q22 -->
-<div class="question-row" data-id="Q22">
-  <div class="qa-block">
-    <div class="question-text">Le produit de nettoyage “lait” sert à…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q22">
-    <label><input type="radio" name="Q22_choice" value="A"> Dissoudre les dépôts de lait sur la buse/pichets</label>
-    <label><input type="radio" name="Q22_choice" value="B"> Nettoyer les huiles de café dans les groupes</label>
-    <label><input type="radio" name="Q22_choice" value="C"> Détartrer le moulin</label>
-  </div>
-</div>
-
-<!-- Q23 -->
-<div class="question-row" data-id="Q23">
-  <div class="qa-block">
-    <div class="question-text">La balance entre Nicaragua et Brésil dans notre blend…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q23">
-    <label><input type="radio" name="Q23_choice" value="A"> Donne un équilibre en tasse quand l’extraction est correcte</label>
-    <label><input type="radio" name="Q23_choice" value="B"> Ne change rien si l’extraction est ratée</label>
-    <label><input type="radio" name="Q23_choice" value="C"> Permet de faire découvrir des pays aux clients</label>
-  </div>
-</div>
-
-<!-- Q24 -->
-<div class="question-row" data-id="Q24">
-  <div class="qa-block">
-    <div class="question-text">Pour nettoyer la tête de groupe, il faut d’abord…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q24">
-    <label><input type="radio" name="Q24_choice" value="A"> Dévisser la douchette (2 petites vis + 2 filtres)</label>
-    <label><input type="radio" name="Q24_choice" value="B"> Laisser la douchette en place</label>
-    <label><input type="radio" name="Q24_choice" value="C"> Faire couler de l’eau bouillante d’abord</label>
-  </div>
-</div>
-
-<!-- Q25 -->
-<div class="question-row" data-id="Q25">
-  <div class="qa-block">
-    <div class="question-text">Le cycle avec filtre aveugle + poudre café se fait…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q25">
-    <label><input type="radio" name="Q25_choice" value="A"> Tous les jours en fin de service</label>
-    <label><input type="radio" name="Q25_choice" value="B"> Une fois par mois</label>
-    <label><input type="radio" name="Q25_choice" value="C"> Deux fois par mois</label>
-  </div>
-</div>
-
-<!-- Q26 -->
-<div class="question-row" data-id="Q26">
-  <div class="qa-block">
-    <div class="question-text">Après un cycle avec produit café, il faut…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q26">
-    <label><input type="radio" name="Q26_choice" value="A"> Rincer plusieurs fois à l’eau claire</label>
-    <label><input type="radio" name="Q26_choice" value="B"> Laisser tel quel jusqu’au lendemain</label>
-    <label><input type="radio" name="Q26_choice" value="C"> Laisser tremper toute la nuit</label>
-  </div>
-</div>
-
-<!-- Q27 -->
-<div class="question-row" data-id="Q27">
-  <div class="qa-block">
-    <div class="question-text">Purger la buse vapeur après chaque boisson…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q27">
-    <label><input type="radio" name="Q27_choice" value="A"> Évite que du lait remonte dans la machine</label>
-    <label><input type="radio" name="Q27_choice" value="B"> Ne sert qu’à faire joli</label>
-    <label><input type="radio" name="Q27_choice" value="C"> Utile seulement le matin</label>
-  </div>
-</div>
-
-<!-- Q28 -->
-<div class="question-row" data-id="Q28">
-  <div class="qa-block">
-    <div class="question-text">La grille / support boissons de la machine café doit être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q28">
-    <label><input type="radio" name="Q28_choice" value="A"> Démonter et nettoyer quotidiennement</label>
-    <label><input type="radio" name="Q28_choice" value="B"> Juste essuyée en surface</label>
-    <label><input type="radio" name="Q28_choice" value="C"> Essuyer à sec</label>
-  </div>
-</div>
-
-<!-- Q29 -->
-<div class="question-row" data-id="Q29">
-  <div class="qa-block">
-    <div class="question-text">L’objectif du nettoyage quotidien de la machine café est…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q29">
-    <label><input type="radio" name="Q29_choice" value="A"> Propreté + goût constant</label>
-    <label><input type="radio" name="Q29_choice" value="B"> Juste un critère esthétique</label>
-    <label><input type="radio" name="Q29_choice" value="C"> Pour le plaisir</label>
-  </div>
-</div>
-
-<!-- Q30 -->
-<div class="question-row" data-id="Q30">
-  <div class="qa-block">
-    <div class="question-text">Les pichets lait doivent être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q30">
-    <label><input type="radio" name="Q30_choice" value="A"> Nettoyés et rangés propres</label>
-    <label><input type="radio" name="Q30_choice" value="B"> Rincés vite fait à l’eau froide</label>
-    <label><input type="radio" name="Q30_choice" value="C"> Laissés comme ils sont</label>
-  </div>
-</div>
-
-<!-- Q31 -->
-<div class="question-row" data-id="Q31">
-  <div class="qa-block">
-    <div class="question-text">Nettoyer le bac de récupération sous la grille de la machine café…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q31">
-    <label><input type="radio" name="Q31_choice" value="A"> Évite les odeurs et le débordement</label>
-    <label><input type="radio" name="Q31_choice" value="B"> Ne sert à rien si on vide l’eau de temps en temps</label>
-    <label><input type="radio" name="Q31_choice" value="C"> Est optionnel</label>
-  </div>
-</div>
-
-<!-- Q32 -->
-<div class="question-row" data-id="Q32">
-  <div class="qa-block">
-    <div class="question-text">Si la boisson sort avec un goût “sale” ou rance, premier réflexe…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q32">
-    <label><input type="radio" name="Q32_choice" value="A"> Vérifier nettoyage machine et porte-filtres</label>
-    <label><input type="radio" name="Q32_choice" value="B"> Mettre plus de sirop aromatisé</label>
-    <label><input type="radio" name="Q32_choice" value="C"> Mettre du sucre</label>
-  </div>
-</div>
-
-<!-- Q33 -->
-<div class="question-row" data-id="Q33">
-  <div class="qa-block">
-    <div class="question-text">Pendant le service, la buse vapeur doit être nettoyée…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q33">
-    <label><input type="radio" name="Q33_choice" value="A"> Après chaque utilisation</label>
-    <label><input type="radio" name="Q33_choice" value="B"> Une fois par heure</label>
-    <label><input type="radio" name="Q33_choice" value="C"> Jamais</label>
-  </div>
-</div>
-
-<!-- Q34 -->
-<div class="question-row" data-id="Q34">
-  <div class="qa-block">
-    <div class="question-text">Le café qui reste dans le porte-filtre après extraction doit être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q34">
-    <label><input type="radio" name="Q34_choice" value="A"> Éjecté, puis porte-filtre essuyé</label>
-    <label><input type="radio" name="Q34_choice" value="B"> Laissé pour faire “couche isolante”</label>
-    <label><input type="radio" name="Q34_choice" value="C"> Gardé pour le suivant</label>
-  </div>
-</div>
-
-<!-- Q35 -->
-<div class="question-row" data-id="Q35">
-  <div class="qa-block">
-    <div class="question-text">Pour la constance en tasse, le plus important est…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q35">
-    <label><input type="radio" name="Q35_choice" value="A"> Temps d’extraction + grammage + mouture</label>
-    <label><input type="radio" name="Q35_choice" value="B"> La couleur de la tasse</label>
-    <label><input type="radio" name="Q35_choice" value="C"> Varier selon l’humeur</label>
-  </div>
-</div>
-
-<!-- Q36 -->
-<div class="question-row" data-id="Q36">
-  <div class="qa-block">
-    <div class="question-text">La formation barista Puffy vise à…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q36">
-    <label><input type="radio" name="Q36_choice" value="A"> Avoir des réflexes identiques à ceux d’un barista de spécialité</label>
-    <label><input type="radio" name="Q36_choice" value="B"> Faire au feeling selon chaque équipier</label>
-    <label><input type="radio" name="Q36_choice" value="C"> Être rapide</label>
-  </div>
-</div>
-
-<!-- Q37 -->
-<div class="question-row" data-id="Q37">
-  <div class="qa-block">
-    <div class="question-text">Le produit lait doit être utilisé…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q37">
-    <label><input type="radio" name="Q37_choice" value="A"> Selon les dosages indiqués, pas “au pif”</label>
-    <label><input type="radio" name="Q37_choice" value="B"> En versant “un peu comme ça”</label>
-    <label><input type="radio" name="Q37_choice" value="C"> En mettant un maximum pour nettoyer au mieux</label>
-  </div>
-</div>
-
-<!-- Q38 -->
-<div class="question-row" data-id="Q38">
-  <div class="qa-block">
-    <div class="question-text">Quand un client demande des infos sur le café, on répond…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q38">
-    <label><input type="radio" name="Q38_choice" value="A"> “C’est un blend que nous torréfions, 70 % Nicaragua / 30 % Brésil”</label>
-    <label><input type="radio" name="Q38_choice" value="B"> “C’est un café classique, je ne sais pas d’où il vient”</label>
-    <label><input type="radio" name="Q38_choice" value="C"> Inventer, il faut répondre au client, peu importe la réponse</label>
-  </div>
-</div>
-
-<!-- Q39 -->
-<div class="question-row" data-id="Q39">
-  <div class="qa-block">
-    <div class="question-text">La qualité du café Puffy repose surtout sur…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="Q39">
-    <label><input type="radio" name="Q39_choice" value="A"> Standardisation des gestes + nettoyage quotidien</label>
-    <label><input type="radio" name="Q39_choice" value="B"> L’inspiration de chaque équipier</label>
-    <label><input type="radio" name="Q39_choice" value="C"> Le grain utilisé</label>
-  </div>
-</div>
-
-<h2>Cookie</h2>
-
-<!-- C1 -->
-<div class="question-row" data-id="C1">
-  <div class="qa-block">
-    <div class="question-text">Le poids standard d’un cookie Puffy cru est…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C1">
-    <label><input type="radio" name="C1_choice" value="A"> 130 g</label>
-    <label><input type="radio" name="C1_choice" value="B"> 100 g</label>
-    <label><input type="radio" name="C1_choice" value="C"> 150 g</label>
-  </div>
-</div>
-
-<!-- C2 -->
-<div class="question-row" data-id="C2">
-  <div class="qa-block">
-    <div class="question-text">Une boule qui fait 115 g doit être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C2">
-    <label><input type="radio" name="C2_choice" value="A"> Rebouler pour atteindre 130 g</label>
-    <label><input type="radio" name="C2_choice" value="B"> Acceptée telle quelle</label>
-    <label><input type="radio" name="C2_choice" value="C"> Bonne taille</label>
-  </div>
-</div>
-
-<!-- C3 -->
-<div class="question-row" data-id="C3">
-  <div class="qa-block">
-    <div class="question-text">Pour la préparation pâte, le beurre doit être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C3">
-    <label><input type="radio" name="C3_choice" value="A"> Froid</label>
-    <label><input type="radio" name="C3_choice" value="B"> Ramolli à température ambiante</label>
-    <label><input type="radio" name="C3_choice" value="C"> Fondu</label>
-  </div>
-</div>
-
-<!-- C4 -->
-<div class="question-row" data-id="C4">
-  <div class="qa-block">
-    <div class="question-text">Les plaques de cuisson doivent être utilisées…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C4">
-    <label><input type="radio" name="C4_choice" value="A"> Froides</label>
-    <label><input type="radio" name="C4_choice" value="B"> Préchauffées à l’avance</label>
-    <label><input type="radio" name="C4_choice" value="C"> Chaudes</label>
-  </div>
-</div>
-
-<!-- C5 -->
-<div class="question-row" data-id="C5">
-  <div class="qa-block">
-    <div class="question-text">Les cookies sont boulés…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C5">
-    <label><input type="radio" name="C5_choice" value="A"> Juste après préparation de la pâte</label>
-    <label><input type="radio" name="C5_choice" value="B"> Le lendemain de la préparation</label>
-    <label><input type="radio" name="C5_choice" value="C"> Non pesés</label>
-  </div>
-</div>
-
-<!-- C6 -->
-<div class="question-row" data-id="C6">
-  <div class="qa-block">
-    <div class="question-text">Le cooldown minimum avant mise en vente est…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C6">
-    <label><input type="radio" name="C6_choice" value="A"> 30 minutes</label>
-    <label><input type="radio" name="C6_choice" value="B"> 2 minutes</label>
-    <label><input type="radio" name="C6_choice" value="C"> 2 heures</label>
-  </div>
-</div>
-
-<!-- C7 -->
-<div class="question-row" data-id="C7">
-  <div class="qa-block">
-    <div class="question-text">Cuire des cookies non assez refroidis au four…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C7">
-    <label><input type="radio" name="C7_choice" value="A"> Peut donner un produit moins stable et moins régulier</label>
-    <label><input type="radio" name="C7_choice" value="B"> Donne toujours le même résultat</label>
-    <label><input type="radio" name="C7_choice" value="C"> Cuits plus vite</label>
-  </div>
-</div>
-
-<!-- C8 -->
-<div class="question-row" data-id="C8">
-  <div class="qa-block">
-    <div class="question-text">Un cookie trop chaud et friable doit être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C8">
-    <label><input type="radio" name="C8_choice" value="A"> Attendu jusqu’à refroidissement correct</label>
-    <label><input type="radio" name="C8_choice" value="B"> Mis en vitrine quand même</label>
-    <label><input type="radio" name="C8_choice" value="C"> Servi immédiatement</label>
-  </div>
-</div>
-
-<!-- C9 -->
-<div class="question-row" data-id="C9">
-  <div class="qa-block">
-    <div class="question-text">L’objectif de la vitrine est…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C9">
-    <label><input type="radio" name="C9_choice" value="A"> De sembler pleine toute la journée</label>
-    <label><input type="radio" name="C9_choice" value="B"> De se vider progressivement</label>
-    <label><input type="radio" name="C9_choice" value="C"> Décorer</label>
-  </div>
-</div>
-
-<!-- C10 -->
-<div class="question-row" data-id="C10">
-  <div class="qa-block">
-    <div class="question-text">Les cookies restants en fin de journée…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C10">
-    <label><input type="radio" name="C10_choice" value="A"> Sont mis en boîte plastique blanche pour réchauffe programme adapté</label>
-    <label><input type="radio" name="C10_choice" value="B"> Peuvent rester en vitrine pour le lendemain</label>
-    <label><input type="radio" name="C10_choice" value="C"> Jetés</label>
-  </div>
-</div>
-
-<!-- C11 -->
-<div class="question-row" data-id="C11">
-  <div class="qa-block">
-    <div class="question-text">Sur Deliveroo, en cas de cookie manquant sur une commande, on doit…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C11">
-    <label><input type="radio" name="C11_choice" value="A"> Prévenir le responsable + contacter le client via la procédure Deliveroo</label>
-    <label><input type="radio" name="C11_choice" value="B"> Mettre un cookie au hasard sans prévenir</label>
-    <label><input type="radio" name="C11_choice" value="C"> Remplacer par un brownie</label>
-  </div>
-</div>
-
-<!-- C12 -->
-<div class="question-row" data-id="C12">
-  <div class="qa-block">
-    <div class="question-text">Un client qui demande un cookie encore en cooldown…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C12">
-    <label><input type="radio" name="C12_choice" value="A"> Doit être informé qu’il n’est pas encore prêt à la vente</label>
-    <label><input type="radio" name="C12_choice" value="B"> Peut recevoir le cookie quand même si “il insiste”</label>
-    <label><input type="radio" name="C12_choice" value="C"> Doit être ignoré</label>
-  </div>
-</div>
-
-<!-- C13 -->
-<div class="question-row" data-id="C13">
-  <div class="qa-block">
-    <div class="question-text">Le topping incorrect (ex : 2 noisettes au lieu de 3)…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C13">
-    <label><input type="radio" name="C13_choice" value="A"> Casse le standard visuel Puffy</label>
-    <label><input type="radio" name="C13_choice" value="B"> Est un détail sans importance</label>
-    <label><input type="radio" name="C13_choice" value="C"> Cela fait partie du concept Puffy</label>
-  </div>
-</div>
-
-<!-- C14 -->
-<div class="question-row" data-id="C14">
-  <div class="qa-block">
-    <div class="question-text">La température des plaques de maintien vitrine est autour de…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C14">
-    <label><input type="radio" name="C14_choice" value="A"> 35 °C</label>
-    <label><input type="radio" name="C14_choice" value="B"> 15 °C</label>
-    <label><input type="radio" name="C14_choice" value="C"> 75 °C</label>
-  </div>
-</div>
-
-<!-- C15 -->
-<div class="question-row" data-id="C15">
-  <div class="qa-block">
-    <div class="question-text">Les cookies en vitrine sont…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C15">
-    <label><input type="radio" name="C15_choice" value="A"> Déjà chauds grâce à la plaque chaude</label>
-    <label><input type="radio" name="C15_choice" value="B"> Toujours servis froids</label>
-    <label><input type="radio" name="C15_choice" value="C"> Excellents</label>
-  </div>
-</div>
-
-<!-- C16 -->
-<div class="question-row" data-id="C16">
-  <div class="qa-block">
-    <div class="question-text">Les cookies ne sont pas réchauffés individuellement car…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C16">
-    <label><input type="radio" name="C16_choice" value="A"> Ils sont déjà maintenus chauds et ce serait contraire au process</label>
-    <label><input type="radio" name="C16_choice" value="B"> Le four est trop loin</label>
-    <label><input type="radio" name="C16_choice" value="C"> C'est meilleur froid</label>
-  </div>
-</div>
-
-<!-- C17 -->
-<div class="question-row" data-id="C17">
-  <div class="qa-block">
-    <div class="question-text">Stocker la pâte à cookie à température ambiante…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C17">
-    <label><input type="radio" name="C17_choice" value="A"> Est interdit (doit être au frais)</label>
-    <label><input type="radio" name="C17_choice" value="B"> Est possible plusieurs heures</label>
-    <label><input type="radio" name="C17_choice" value="C"> Stockée dehors</label>
-  </div>
-</div>
-
-<!-- C18 -->
-<div class="question-row" data-id="C18">
-  <div class="qa-block">
-    <div class="question-text">Les allergènes des cookies se trouvent…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C18">
-    <label><input type="radio" name="C18_choice" value="A"> Sur une feuille plastifiée en shop</label>
-    <label><input type="radio" name="C18_choice" value="B"> Seulement dans la tête du manager</label>
-    <label><input type="radio" name="C18_choice" value="C"> Non indiqués</label>
-  </div>
-</div>
-
-<!-- C19 -->
-<div class="question-row" data-id="C19">
-  <div class="qa-block">
-    <div class="question-text">Un cookie cassé peut être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C19">
-    <label><input type="radio" name="C19_choice" value="A"> Retiré de la vente comptoir</label>
-    <label><input type="radio" name="C19_choice" value="B"> Vendu normalement au même prix</label>
-    <label><input type="radio" name="C19_choice" value="C"> Vendable à -50%</label>
-  </div>
-</div>
-
-<!-- C20 -->
-<div class="question-row" data-id="C20">
-  <div class="qa-block">
-    <div class="question-text">En production, charger le four avec…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C20">
-    <label><input type="radio" name="C20_choice" value="A"> 6 plaques homogènes pour une cuisson régulière</label>
-    <label><input type="radio" name="C20_choice" value="B"> Quelques plaques de recettes mélangées</label>
-    <label><input type="radio" name="C20_choice" value="C"> 2 plaques à chaque fois</label>
-  </div>
-</div>
-
-<!-- C21 -->
-<div class="question-row" data-id="C21">
-  <div class="qa-block">
-    <div class="question-text">Ne pas respecter FIFO en vitrine…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C21">
-    <label><input type="radio" name="C21_choice" value="A"> Augmente le risque de vendre les cookies les plus anciens en dernier</label>
-    <label><input type="radio" name="C21_choice" value="B"> N’a aucun impact</label>
-    <label><input type="radio" name="C21_choice" value="C"> Est obligatoire</label>
-  </div>
-</div>
-
-<!-- C22 -->
-<div class="question-row" data-id="C22">
-  <div class="qa-block">
-    <div class="question-text">La vitrine doit rester…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C22">
-    <label><input type="radio" name="C22_choice" value="A"> Organisée par références, lisible pour le client</label>
-    <label><input type="radio" name="C22_choice" value="B"> Mélangée sans ordre</label>
-    <label><input type="radio" name="C22_choice" value="C"> Remplie à moitié</label>
-  </div>
-</div>
-
-<!-- C23 -->
-<div class="question-row" data-id="C23">
-  <div class="qa-block">
-    <div class="question-text">L’objectif de la vitrine Puffy est…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C23">
-    <label><input type="radio" name="C23_choice" value="A"> Que le client voit toujours une vitrine généreuse</label>
-    <label><input type="radio" name="C23_choice" value="B"> Qu’on voie clairement les manques</label>
-    <label><input type="radio" name="C23_choice" value="C"> Faire jolie</label>
-  </div>
-</div>
-
-<!-- C24 -->
-<div class="question-row" data-id="C24">
-  <div class="qa-block">
-    <div class="question-text">Un cookie cassé ou très déformé pour la vente comptoir doit être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C24">
-    <label><input type="radio" name="C24_choice" value="A"> Retiré de la vente (hors standard)</label>
-    <label><input type="radio" name="C24_choice" value="B"> Mis en vente</label>
-    <label><input type="radio" name="C24_choice" value="C"> Mis en vente sur Deliveroo</label>
-  </div>
-</div>
-
-<!-- C25 -->
-<div class="question-row" data-id="C25">
-  <div class="qa-block">
-    <div class="question-text">Noter les cuissons futures d’un commun accord en équipe…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C25">
-    <label><input type="radio" name="C25_choice" value="A"> Permet d’éviter les trous et malentendus</label>
-    <label><input type="radio" name="C25_choice" value="B"> Est une perte de temps</label>
-    <label><input type="radio" name="C25_choice" value="C"> Au hasard</label>
-  </div>
-</div>
-
-<!-- C26 -->
-<div class="question-row" data-id="C26">
-  <div class="qa-block">
-    <div class="question-text">À quel moment faut-il ajouter le sel dans la recette des cookies ?</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C26">
-    <label><input type="radio" name="C26_choice" value="A"> En même temps que la farine, levure</label>
-    <label><input type="radio" name="C26_choice" value="B"> Avec le beurre au début pour “mieux crémer”</label>
-    <label><input type="radio" name="C26_choice" value="C"> Juste avant de mettre les fruits secs pour “booster le goût”</label>
-  </div>
-</div>
-
-<!-- C27 -->
-<div class="question-row" data-id="C27">
-  <div class="qa-block">
-    <div class="question-text">Combien de noisettes doit-on disposer sur un cookie noisette ?</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C27">
-    <label><input type="radio" name="C27_choice" value="A"> 3</label>
-    <label><input type="radio" name="C27_choice" value="B"> 2</label>
-    <label><input type="radio" name="C27_choice" value="C"> 1</label>
-  </div>
-</div>
-
-<!-- C28 -->
-<div class="question-row" data-id="C28">
-  <div class="qa-block">
-    <div class="question-text">Pourquoi faut-il toujours utiliser des plaques froides ?</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="C28">
-    <label><input type="radio" name="C28_choice" value="A"> Pour éviter que la pâte ne fonde avant la cuisson.</label>
-    <label><input type="radio" name="C28_choice" value="B"> Pour accélérer la cuisson.</label>
-    <label><input type="radio" name="C28_choice" value="C"> Pour donner un aspect plus doré.</label>
-  </div>
-</div>
-
-<h2>Hygiène</h2>
-
-<!-- H1 -->
-<div class="question-row" data-id="H1">
-  <div class="qa-block">
-    <div class="question-text">Aucun produit stocké ne doit être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H1">
-    <label><input type="radio" name="H1_choice" value="A"> Sans étiquette DLC</label>
-    <label><input type="radio" name="H1_choice" value="B"> Dans un frigo</label>
-    <label><input type="radio" name="H1_choice" value="C"> Dans le congélateur</label>
-  </div>
-</div>
-
-<!-- H2 -->
-<div class="question-row" data-id="H2">
-  <div class="qa-block">
-    <div class="question-text">Stocker un bac sans étiquette DLC…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H2">
-    <label><input type="radio" name="H2_choice" value="A"> Est interdit</label>
-    <label><input type="radio" name="H2_choice" value="B"> Est toléré si on se souvient de la date</label>
-    <label><input type="radio" name="H2_choice" value="C"> Sans importance</label>
-  </div>
-</div>
-
-<!-- H3 -->
-<div class="question-row" data-id="H3">
-  <div class="qa-block">
-    <div class="question-text">Les étiquettes DLC sont imprimées via…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H3">
-    <label><input type="radio" name="H3_choice" value="A"> HYGIE</label>
-    <label><input type="radio" name="H3_choice" value="B"> Inpulse</label>
-    <label><input type="radio" name="H3_choice" value="C"> Manuellement</label>
-  </div>
-</div>
-
-<!-- H4 -->
-<div class="question-row" data-id="H4">
-  <div class="qa-block">
-    <div class="question-text">Étiqueter au feutre directement sur le bac au lieu d’utiliser Hygie…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H4">
-    <label><input type="radio" name="H4_choice" value="A"> Casse la traçabilité</label>
-    <label><input type="radio" name="H4_choice" value="B"> Est équivalent</label>
-    <label><input type="radio" name="H4_choice" value="C"> Rapide</label>
-  </div>
-</div>
-
-<!-- H5 -->
-<div class="question-row" data-id="H5">
-  <div class="qa-block">
-    <div class="question-text">L’étiquetage est de la responsabilité…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H5">
-    <label><input type="radio" name="H5_choice" value="A"> De chacun pour ce qu’il prépare</label>
-    <label><input type="radio" name="H5_choice" value="B"> Uniquement du manager</label>
-    <label><input type="radio" name="H5_choice" value="C"> Individuelle</label>
-  </div>
-</div>
-
-<!-- H6 -->
-<div class="question-row" data-id="H6">
-  <div class="qa-block">
-    <div class="question-text">Mélanger produits d’entretien et denrées dans un même placard…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H6">
-    <label><input type="radio" name="H6_choice" value="A"> Est interdit</label>
-    <label><input type="radio" name="H6_choice" value="B"> Est toléré si les bidons sont fermés</label>
-    <label><input type="radio" name="H6_choice" value="C"> Est pratique pour gain de places</label>
-  </div>
-</div>
-
-<!-- H7 -->
-<div class="question-row" data-id="H7">
-  <div class="qa-block">
-    <div class="question-text">Garder les produits d’entretien sur le plan de travail près des aliments…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H7">
-    <label><input type="radio" name="H7_choice" value="A"> Est à éviter absolument</label>
-    <label><input type="radio" name="H7_choice" value="B"> Est pratique</label>
-    <label><input type="radio" name="H7_choice" value="C"> respecte les règles HACCP</label>
-  </div>
-</div>
-
-<!-- H8 -->
-<div class="question-row" data-id="H8">
-  <div class="qa-block">
-    <div class="question-text">Le FIFO en frigo signifie…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H8">
-    <label><input type="radio" name="H8_choice" value="A"> On utilise d’abord les plus anciens</label>
-    <label><input type="radio" name="H8_choice" value="B"> On utilise d’abord les plus récents</label>
-    <label><input type="radio" name="H8_choice" value="C"> On garde une température régulière</label>
-  </div>
-</div>
-
-<!-- H9 -->
-<div class="question-row" data-id="H9">
-  <div class="qa-block">
-    <div class="question-text">Laver un torchon de sol et le réutiliser pour le café…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H9">
-    <label><input type="radio" name="H9_choice" value="A"> Est interdit</label>
-    <label><input type="radio" name="H9_choice" value="B"> Est autorisé si sec</label>
-    <label><input type="radio" name="H9_choice" value="C"> Obligatoire</label>
-  </div>
-</div>
-
-<!-- H10 -->
-<div class="question-row" data-id="H10">
-  <div class="qa-block">
-    <div class="question-text">Le nettoyage buse vapeur/pichets se fait…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H10">
-    <label><input type="radio" name="H10_choice" value="A"> Après chaque boisson</label>
-    <label><input type="radio" name="H10_choice" value="B"> Une fois en fin de journée</label>
-    <label><input type="radio" name="H10_choice" value="C"> Deux fois par semaine</label>
-  </div>
-</div>
-
-<!-- H11 -->
-<div class="question-row" data-id="H11">
-  <div class="qa-block">
-    <div class="question-text">Si tu ne sais plus depuis quand un produit est ouvert…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H11">
-    <label><input type="radio" name="H11_choice" value="A"> Tu ne l’utilises pas</label>
-    <label><input type="radio" name="H11_choice" value="B"> Tu l’utilises “pour éviter de gâcher”</label>
-    <label><input type="radio" name="H11_choice" value="C"> On le fait goûter à un client</label>
-  </div>
-</div>
-
-<!-- H12 -->
-<div class="question-row" data-id="H12">
-  <div class="qa-block">
-    <div class="question-text">Sous la plaque chaude à cookies, il faut…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H12">
-    <label><input type="radio" name="H12_choice" value="A"> Nettoyer régulièrement</label>
-    <label><input type="radio" name="H12_choice" value="B"> Ne jamais toucher</label>
-    <label><input type="radio" name="H12_choice" value="C"> Nettoyer 1 fois par mois</label>
-  </div>
-</div>
-
-<!-- H13 -->
-<div class="question-row" data-id="H13">
-  <div class="qa-block">
-    <div class="question-text">Les gants jetables remplacent…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H13">
-    <label><input type="radio" name="H13_choice" value="A"> Le lavage des mains ? Non.</label>
-    <label><input type="radio" name="H13_choice" value="B"> Le lavage des mains ? Oui.</label>
-    <label><input type="radio" name="H13_choice" value="C"> Le lavage des surfaces</label>
-  </div>
-</div>
-
-<!-- H14 -->
-<div class="question-row" data-id="H14">
-  <div class="qa-block">
-    <div class="question-text">La tenue appropriée inclut…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H14">
-    <label><input type="radio" name="H14_choice" value="A"> Charlotte, tablier propre, éventuellement gants selon tâche</label>
-    <label><input type="radio" name="H14_choice" value="B"> Vêtements personnels sans protection</label>
-    <label><input type="radio" name="H14_choice" value="C"> Short, T-shirt et lunettes de soleil</label>
-  </div>
-</div>
-
-<!-- H15 -->
-<div class="question-row" data-id="H15">
-  <div class="qa-block">
-    <div class="question-text">Le matcha doit être gardé…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H15">
-    <label><input type="radio" name="H15_choice" value="A"> Au frais, à l’abri de la lumière</label>
-    <label><input type="radio" name="H15_choice" value="B"> Sur le comptoir, à température ambiante</label>
-    <label><input type="radio" name="H15_choice" value="C"> Sous le comptoir au sec</label>
-  </div>
-</div>
-
-<!-- H16 -->
-<div class="question-row" data-id="H16">
-  <div class="qa-block">
-    <div class="question-text">Faire la plonge avec une eau grasse et jamais renouvelée…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H16">
-    <label><input type="radio" name="H16_choice" value="A"> Est contraire aux règles de base</label>
-    <label><input type="radio" name="H16_choice" value="B"> Est acceptable si on rajoute de l’eau chaude</label>
-    <label><input type="radio" name="H16_choice" value="C"> Meilleure car ça graisse les plaques de cuisson</label>
-  </div>
-</div>
-
-<!-- H17 -->
-<div class="question-row" data-id="H17">
-  <div class="qa-block">
-    <div class="question-text">Nettoyer la buse vapeur une seule fois par service…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H17">
-    <label><input type="radio" name="H17_choice" value="A"> N’est pas suffisant</label>
-    <label><input type="radio" name="H17_choice" value="B"> Est largement suffisant</label>
-    <label><input type="radio" name="H17_choice" value="C"> Est inutile</label>
-  </div>
-</div>
-
-<!-- H18 -->
-<div class="question-row" data-id="H18">
-  <div class="qa-block">
-    <div class="question-text">Un sol humide non signalé…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H18">
-    <label><input type="radio" name="H18_choice" value="A"> Est un risque de chute client/équipe</label>
-    <label><input type="radio" name="H18_choice" value="B"> Est sans danger</label>
-    <label><input type="radio" name="H18_choice" value="C"> Est obligatoire</label>
-  </div>
-</div>
-
-<!-- H19 -->
-<div class="question-row" data-id="H19">
-  <div class="qa-block">
-    <div class="question-text">La fiche de nettoyage des toilettes du shop sert à…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H19">
-    <label><input type="radio" name="H19_choice" value="A"> Tracer ce qui a été fait</label>
-    <label><input type="radio" name="H19_choice" value="B"> Faire joli au mur</label>
-    <label><input type="radio" name="H19_choice" value="C"> Est optionnel</label>
-  </div>
-</div>
-
-<!-- H20 -->
-<div class="question-row" data-id="H20">
-  <div class="qa-block">
-    <div class="question-text">Utiliser le même chiffon pour toilettes et plan de travail…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H20">
-    <label><input type="radio" name="H20_choice" value="A"> Est strictement interdit</label>
-    <label><input type="radio" name="H20_choice" value="B"> Est possible si on le rince</label>
-    <label><input type="radio" name="H20_choice" value="C"> Obligatoire</label>
-  </div>
-</div>
-
-<!-- H21 -->
-<div class="question-row" data-id="H21">
-  <div class="qa-block">
-    <div class="question-text">Le lave-vaisselle doit être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H21">
-    <label><input type="radio" name="H21_choice" value="A"> Nettoyé après chaque service</label>
-    <label><input type="radio" name="H21_choice" value="B"> Utilisé sans entretien</label>
-    <label><input type="radio" name="H21_choice" value="C"> Nettoyé chaque fin de mois</label>
-  </div>
-</div>
-
-<!-- H22 -->
-<div class="question-row" data-id="H22">
-  <div class="qa-block">
-    <div class="question-text">La fiche de nettoyage non remplie mais ménage fait…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H22">
-    <label><input type="radio" name="H22_choice" value="A"> Pose un problème de traçabilité</label>
-    <label><input type="radio" name="H22_choice" value="B"> Ne pose aucun problème</label>
-    <label><input type="radio" name="H22_choice" value="C"> respecte les règles HACCP</label>
-  </div>
-</div>
-
-<!-- H23 -->
-<div class="question-row" data-id="H23">
-  <div class="qa-block">
-    <div class="question-text">En cas de doute sur l’état d’un produit (odeur, aspect)…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H23">
-    <label><input type="radio" name="H23_choice" value="A"> On ne prend pas de risque</label>
-    <label><input type="radio" name="H23_choice" value="B"> On l’utilise quand même</label>
-    <label><input type="radio" name="H23_choice" value="C"> On teste sur quelques clients en attendant leur retour</label>
-  </div>
-</div>
-
-<!-- H24 -->
-<div class="question-row" data-id="H24">
-  <div class="qa-block">
-    <div class="question-text">Laisser des cartons au sol dans les zones de préparation…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H24">
-    <label><input type="radio" name="H24_choice" value="A"> Pose un risque hygiène + sécurité</label>
-    <label><input type="radio" name="H24_choice" value="B"> Est une bonne solution de stockage</label>
-    <label><input type="radio" name="H24_choice" value="C"> Obligatoire</label>
-  </div>
-</div>
-
-<!-- H25 -->
-<div class="question-row" data-id="H25">
-  <div class="qa-block">
-    <div class="question-text">Toilettes client : le nettoyage doit être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H25">
-    <label><input type="radio" name="H25_choice" value="A"> Connu, tracé, régulier ouverture→fermeture</label>
-    <label><input type="radio" name="H25_choice" value="B"> Fait “quand on peut”</label>
-    <label><input type="radio" name="H25_choice" value="C"> Une fois par semaine</label>
-  </div>
-</div>
-
-<!-- H26 -->
-<div class="question-row" data-id="H26">
-  <div class="qa-block">
-    <div class="question-text">Une zone de travail propre signifie…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H26">
-    <label><input type="radio" name="H26_choice" value="A"> Surface dégagée, nettoyée, produit adapté</label>
-    <label><input type="radio" name="H26_choice" value="B"> Juste sans miettes visibles</label>
-    <label><input type="radio" name="H26_choice" value="C"> Sans traces de saleté visible</label>
-  </div>
-</div>
-
-<!-- H27 -->
-<div class="question-row" data-id="H27">
-  <div class="qa-block">
-    <div class="question-text">Remettre au frais un produit resté longtemps à température ambiante…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H27">
-    <label><input type="radio" name="H27_choice" value="A"> Est risqué</label>
-    <label><input type="radio" name="H27_choice" value="B"> Est toujours OK</label>
-    <label><input type="radio" name="H27_choice" value="C"> Est recommandé</label>
-  </div>
-</div>
-
-<!-- H28 -->
-<div class="question-row" data-id="H28">
-  <div class="qa-block">
-    <div class="question-text">Les boîtes doivent être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H28">
-    <label><input type="radio" name="H28_choice" value="A"> Propres, fermées, étiquetées</label>
-    <label><input type="radio" name="H28_choice" value="B"> Ouvertes et remplies au maximum</label>
-    <label><input type="radio" name="H28_choice" value="C"> Vides</label>
-  </div>
-</div>
-
-<!-- H29 -->
-<div class="question-row" data-id="H29">
-  <div class="qa-block">
-    <div class="question-text">Hygiène = obligation…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H29">
-    <label><input type="radio" name="H29_choice" value="A"> Légale + sécurité client + image</label>
-    <label><input type="radio" name="H29_choice" value="B"> Uniquement d’image</label>
-    <label><input type="radio" name="H29_choice" value="C"> Pour éviter les mauvais avis Google</label>
-  </div>
-</div>
-
-<!-- H30 -->
-<div class="question-row" data-id="H30">
-  <div class="qa-block">
-    <div class="question-text">Un produit tombé au sol…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H30">
-    <label><input type="radio" name="H30_choice" value="A"> Est à jeter</label>
-    <label><input type="radio" name="H30_choice" value="B"> Peut être utilisé si on l’essuie</label>
-    <label><input type="radio" name="H30_choice" value="C"> Doit rester au sol</label>
-  </div>
-</div>
-
-<!-- H31 -->
-<div class="question-row" data-id="H31">
-  <div class="qa-block">
-    <div class="question-text">Le plan de travail doit être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H31">
-    <label><input type="radio" name="H31_choice" value="A"> Nettoyé régulièrement dans la journée</label>
-    <label><input type="radio" name="H31_choice" value="B"> Nettoyé seulement le soir</label>
-    <label><input type="radio" name="H31_choice" value="C"> Avant chaque pause</label>
-  </div>
-</div>
-
-<!-- H32 -->
-<div class="question-row" data-id="H32">
-  <div class="qa-block">
-    <div class="question-text">Les poubelles sans sac plastique…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H32">
-    <label><input type="radio" name="H32_choice" value="A"> Rendent le nettoyage plus difficile et moins hygiénique</label>
-    <label><input type="radio" name="H32_choice" value="B"> Sont préférables</label>
-    <label><input type="radio" name="H32_choice" value="C"> Sont plus économiques</label>
-  </div>
-</div>
-
-<!-- H33 -->
-<div class="question-row" data-id="H33">
-  <div class="qa-block">
-    <div class="question-text">Un torchon de nettoyage pour café (porte-filtre)…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H33">
-    <label><input type="radio" name="H33_choice" value="A"> Ne doit pas servir pour les surfaces alimentaires</label>
-    <label><input type="radio" name="H33_choice" value="B"> Peut servir à tout</label>
-    <label><input type="radio" name="H33_choice" value="C"> Peut servir pour les vitres</label>
-  </div>
-</div>
-
-<!-- H34 -->
-<div class="question-row" data-id="H34">
-  <div class="qa-block">
-    <div class="question-text">Les mains doivent être lavées…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H34">
-    <label><input type="radio" name="H34_choice" value="A"> Régulièrement, surtout après poubelles/toilettes</label>
-    <label><input type="radio" name="H34_choice" value="B"> Uniquement si on voit de la saleté</label>
-    <label><input type="radio" name="H34_choice" value="C"> Le matin avant de commencer</label>
-  </div>
-</div>
-
-<!-- H35 -->
-<div class="question-row" data-id="H35">
-  <div class="qa-block">
-    <div class="question-text">Les produits d’entretien doivent être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H35">
-    <label><input type="radio" name="H35_choice" value="A"> Stockés séparément de l’alimentaire</label>
-    <label><input type="radio" name="H35_choice" value="B"> Posés dans les frigos si manque de place</label>
-    <label><input type="radio" name="H35_choice" value="C"> Mis avec le chocolat</label>
-  </div>
-</div>
-
-<!-- H36 -->
-<div class="question-row" data-id="H36">
-  <div class="qa-block">
-    <div class="question-text">Laver une coupure à la main et continuer sans pansement…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H36">
-    <label><input type="radio" name="H36_choice" value="A"> Est à proscrire</label>
-    <label><input type="radio" name="H36_choice" value="B"> Est acceptable car ce n'est qu'une petite coupure</label>
-    <label><input type="radio" name="H36_choice" value="C"> Est acceptable si cela ne saigne pas trop</label>
-  </div>
-</div>
-
-<!-- H37 -->
-<div class="question-row" data-id="H37">
-  <div class="qa-block">
-    <div class="question-text">L’hygiène a un impact direct sur…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H37">
-    <label><input type="radio" name="H37_choice" value="A"> La sécurité client et l’image de la marque</label>
-    <label><input type="radio" name="H37_choice" value="B"> Juste le confort des équipes</label>
-    <label><input type="radio" name="H37_choice" value="C"> Le chiffre d'affaire</label>
-  </div>
-</div>
-
-<!-- H38 -->
-<div class="question-row" data-id="H38">
-  <div class="qa-block">
-    <div class="question-text">Manger sur le poste de travail…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H38">
-    <label><input type="radio" name="H38_choice" value="A"> Est interdit</label>
-    <label><input type="radio" name="H38_choice" value="B"> Est toléré</label>
-    <label><input type="radio" name="H38_choice" value="C"> Est autorisé si ce sont des cookies</label>
-  </div>
-</div>
-
-<!-- H39 -->
-<div class="question-row" data-id="H39">
-  <div class="qa-block">
-    <div class="question-text">Pourquoi faut-il toujours conserver les produits allergènes séparés et clairement identifiés ?</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H39">
-    <label><input type="radio" name="H39_choice" value="A"> Pour rendre le rangement plus esthétique dans le frigo.</label>
-    <label><input type="radio" name="H39_choice" value="B"> Parce que les allergènes perdent leur effet s’ils sont stockés trop près d’autres produits.</label>
-    <label><input type="radio" name="H39_choice" value="C"> Pour éviter toute contamination croisée et protéger les clients allergiques.</label>
-  </div>
-</div>
-
-<!-- H40 -->
-<div class="question-row" data-id="H40">
-  <div class="qa-block">
-    <div class="question-text">Pourquoi ne faut-il jamais laisser un produit ouvert sans film ou couvercle dans un frigo de service ?</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H40">
-    <label><input type="radio" name="H40_choice" value="A"> Parce qu’il peut absorber des odeurs et être contaminé par l’environnement.</label>
-    <label><input type="radio" name="H40_choice" value="B"> Parce que le froid détruit les vitamines si l’air circule autour.</label>
-    <label><input type="radio" name="H40_choice" value="C"> Parce que ça refroidit trop vite et change la texture.</label>
-  </div>
-</div>
-
-<!-- H41 -->
-<div class="question-row" data-id="H41">
-  <div class="qa-block">
-    <div class="question-text">Si un frigo affiche 9°C pendant plusieurs heures, que faut-il faire ?</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H41">
-    <label><input type="radio" name="H41_choice" value="A"> Bloquer l’utilisation et écarter les produits sensibles.</label>
-    <label><input type="radio" name="H41_choice" value="B"> Baisser la température au maximum et continuer le service.</label>
-    <label><input type="radio" name="H41_choice" value="C"> Sortir les produits puis les remettre quand le frigo est redescendu.</label>
-  </div>
-</div>
-
-<!-- H42 -->
-<div class="question-row" data-id="H42">
-  <div class="qa-block">
-    <div class="question-text">Pourquoi faut-il nettoyer chaque jour les étagères, les machines de préparation (batteur, machine café, buse, échelles) et toutes les surfaces autour des postes cookie/café ?</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="H42">
-    <label><input type="radio" name="H42_choice" value="A"> Parce qu’un nettoyage trop fréquent “use” moins les machines que si on les nettoyait seulement une fois par semaine.</label>
-    <label><input type="radio" name="H42_choice" value="B"> Principalement pour que le shop paraisse propre visuellement aux clients.</label>
-    <label><input type="radio" name="H42_choice" value="C"> Pour éliminer les résidus alimentaires et éviter le développement de bactéries, moisissures ou allergènes accumulés pendant la journée.</label>
-  </div>
-</div>
-
-<h2>Situations</h2>
-
-<!-- S1 -->
-<div class="question-row" data-id="S1">
-  <div class="qa-block">
-    <div class="question-text">Tu arrives au shop : tu commences par…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S1">
-    <label><input type="radio" name="S1_choice" value="A"> Te changer, te préparer, puis pointer sur Combo</label>
-    <label><input type="radio" name="S1_choice" value="B"> Pointer direct, puis prendre ton temps pour te préparer</label>
-    <label><input type="radio" name="S1_choice" value="C"> Te faire un café</label>
-  </div>
-</div>
-
-<!-- S2 -->
-<div class="question-row" data-id="S2">
-  <div class="qa-block">
-    <div class="question-text">L’arrivée doit se faire…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S2">
-    <label><input type="radio" name="S2_choice" value="A"> 5–10 minutes avant pour être prêt</label>
-    <label><input type="radio" name="S2_choice" value="B"> À l’heure pile, puis on se prépare</label>
-    <label><input type="radio" name="S2_choice" value="C"> Quand on peut</label>
-  </div>
-</div>
-
-<!-- S3 -->
-<div class="question-row" data-id="S3">
-  <div class="qa-block">
-    <div class="question-text">En ouverture, ton premier réflexe opérationnel est…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S3">
-    <label><input type="radio" name="S3_choice" value="A"> Lancer le four, lumières, mise en place poste vente</label>
-    <label><input type="radio" name="S3_choice" value="B"> Discuter des ventes de la veille</label>
-    <label><input type="radio" name="S3_choice" value="C"> Mettre la musique</label>
-  </div>
-</div>
-
-<!-- S4 -->
-<div class="question-row" data-id="S4">
-  <div class="qa-block">
-    <div class="question-text">Si le FDC est différent de d'habitude, il faut…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S4">
-    <label><input type="radio" name="S4_choice" value="A"> Prévenir immédiatement le manager</label>
-    <label><input type="radio" name="S4_choice" value="B"> Continuer et voir plus tard</label>
-    <label><input type="radio" name="S4_choice" value="C"> C'est normal</label>
-  </div>
-</div>
-
-<!-- S5 -->
-<div class="question-row" data-id="S5">
-  <div class="qa-block">
-    <div class="question-text">Si une référence manque dans la livraison…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S5">
-    <label><input type="radio" name="S5_choice" value="A"> Tu le notes sur le BL et tu le signales (fournisseur + Inpulse)</label>
-    <label><input type="radio" name="S5_choice" value="B"> Tu signes sans rien dire</label>
-    <label><input type="radio" name="S5_choice" value="C"> Je refuse la livraison</label>
-  </div>
-</div>
-
-<!-- S6 -->
-<div class="question-row" data-id="S6">
-  <div class="qa-block">
-    <div class="question-text">En fin de journée, il faut imprimer…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S6">
-    <label><input type="radio" name="S6_choice" value="A"> Le Z de caisse</label>
-    <label><input type="radio" name="S6_choice" value="B"> “Revenus du jour”</label>
-    <label><input type="radio" name="S6_choice" value="C"> Rien imprimer</label>
-  </div>
-</div>
-
-<!-- S7 -->
-<div class="question-row" data-id="S7">
-  <div class="qa-block">
-    <div class="question-text">Sur Inpulse, ne pas déclarer les pertes…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S7">
-    <label><input type="radio" name="S7_choice" value="A"> Donne des stocks théoriques faux</label>
-    <label><input type="radio" name="S7_choice" value="B"> Améliore les stocks</label>
-    <label><input type="radio" name="S7_choice" value="C"> Normal</label>
-  </div>
-</div>
-
-<!-- S8 -->
-<div class="question-row" data-id="S8">
-  <div class="qa-block">
-    <div class="question-text">La télécollecte TPE doit être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S8">
-    <label><input type="radio" name="S8_choice" value="A"> Imprimée et jointe à la pochette</label>
-    <label><input type="radio" name="S8_choice" value="B"> Ignorée si tout semble bon</label>
-    <label><input type="radio" name="S8_choice" value="C"> Imprimée une fois par semaine</label>
-  </div>
-</div>
-
-<!-- S9 -->
-<div class="question-row" data-id="S9">
-  <div class="qa-block">
-    <div class="question-text">Un client te parle mal pendant un rush…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S9">
-    <label><input type="radio" name="S9_choice" value="A"> Tu gardes un ton neutre et tu privilégies la solution</label>
-    <label><input type="radio" name="S9_choice" value="B"> Tu montes le ton</label>
-    <label><input type="radio" name="S9_choice" value="C"> Tu l'ignores et ne le sers pas</label>
-  </div>
-</div>
-
-<!-- S10 -->
-<div class="question-row" data-id="S10">
-  <div class="qa-block">
-    <div class="question-text">Les chèques-vacances sont…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S10">
-    <label><input type="radio" name="S10_choice" value="A"> Refusés chez Puffy</label>
-    <label><input type="radio" name="S10_choice" value="B"> Acceptés chez Puffy</label>
-    <label><input type="radio" name="S10_choice" value="C"> Acceptés si année 2025</label>
-  </div>
-</div>
-
-<!-- S11 -->
-<div class="question-row" data-id="S11">
-  <div class="qa-block">
-    <div class="question-text">Les tickets restaurant papiers doivent être saisis…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S11">
-    <label><input type="radio" name="S11_choice" value="A"> Dans une rubrique dédiée “Tickets resto”</label>
-    <label><input type="radio" name="S11_choice" value="B"> En mode “Espèces”</label>
-    <label><input type="radio" name="S11_choice" value="C"> Sur Inpulse</label>
-  </div>
-</div>
-
-<!-- S12 -->
-<div class="question-row" data-id="S12">
-  <div class="qa-block">
-    <div class="question-text">Tu fais une erreur sur le mode de paiement en caisse…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S12">
-    <label><input type="radio" name="S12_choice" value="A"> Tu corriges tout de suite ou tu notes pour la clôture</label>
-    <label><input type="radio" name="S12_choice" value="B"> Tu laisses comme ça pour ne pas “faire d’histoire”</label>
-    <label><input type="radio" name="S12_choice" value="C"> Ce n'est pas grave car quelqu'un corrigera plus tard</label>
-  </div>
-</div>
-
-<!-- S13 -->
-<div class="question-row" data-id="S13">
-  <div class="qa-block">
-    <div class="question-text">Billet de 50 € très bizarre au toucher et note de 6 €…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S13">
-    <label><input type="radio" name="S13_choice" value="A"> Tu contrôles au feutre et préviens le manager si doute</label>
-    <label><input type="radio" name="S13_choice" value="B"> Tu encaisses sans contrôle</label>
-    <label><input type="radio" name="S13_choice" value="C"> J'échange son billet avec un présent dans la caisse</label>
-  </div>
-</div>
-
-<!-- S14 -->
-<div class="question-row" data-id="S14">
-  <div class="qa-block">
-    <div class="question-text">Un client demande de réchauffer son cookie dans le four…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S14">
-    <label><input type="radio" name="S14_choice" value="A"> Tu expliques que les cookies sont déjà sur plaque chaude</label>
-    <label><input type="radio" name="S14_choice" value="B"> Tu acceptes pour lui “faire plaisir”</label>
-    <label><input type="radio" name="S14_choice" value="C"> J'accepte car ce sont les process Puffy</label>
-  </div>
-</div>
-
-<!-- S15 -->
-<div class="question-row" data-id="S15">
-  <div class="qa-block">
-    <div class="question-text">En fin de journée, CB du Z doit…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S15">
-    <label><input type="radio" name="S15_choice" value="A"> Être égal au total télécollecte</label>
-    <label><input type="radio" name="S15_choice" value="B"> Être supérieur à la télécollecte</label>
-    <label><input type="radio" name="S15_choice" value="C"> Être inférieur à la télécollecte</label>
-  </div>
-</div>
-
-<!-- S16 -->
-<div class="question-row" data-id="S16">
-  <div class="qa-block">
-    <div class="question-text">Tu vois un collègue débordé en plein rush café…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S16">
-    <label><input type="radio" name="S16_choice" value="A"> Tu proposes d’ajuster l’organisation ou de l’aider</label>
-    <label><input type="radio" name="S16_choice" value="B"> Tu continues ton poste comme si de rien n’était</label>
-    <label><input type="radio" name="S16_choice" value="C"> Je vais en pause</label>
-  </div>
-</div>
-
-<!-- S17 -->
-<div class="question-row" data-id="S17">
-  <div class="qa-block">
-    <div class="question-text">En fin de journée, espèces du tiroir (hors FDC) doivent…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S17">
-    <label><input type="radio" name="S17_choice" value="A"> Être égales au total espèces du Z</label>
-    <label><input type="radio" name="S17_choice" value="B"> Être légèrement supérieures</label>
-    <label><input type="radio" name="S17_choice" value="C"> Être très inférieures</label>
-  </div>
-</div>
-
-<!-- S18 -->
-<div class="question-row" data-id="S18">
-  <div class="qa-block">
-    <div class="question-text">En cas de conflit entre deux équipiers en plein service…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S18">
-    <label><input type="radio" name="S18_choice" value="A"> On sépare les postes et on gère après le rush</label>
-    <label><input type="radio" name="S18_choice" value="B"> On règle ça devant tout le monde</label>
-    <label><input type="radio" name="S18_choice" value="C"> On ignore les conflits et on "fait avec"</label>
-  </div>
-</div>
-
-<!-- S19 -->
-<div class="question-row" data-id="S19">
-  <div class="qa-block">
-    <div class="question-text">Si CB Z ≠ télécollecte, on…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S19">
-    <label><input type="radio" name="S19_choice" value="A"> Relance la télécollecte et vérifie les dates</label>
-    <label><input type="radio" name="S19_choice" value="B"> Ignore et met en pochette</label>
-    <label><input type="radio" name="S19_choice" value="C"> Règle le lendemain</label>
-  </div>
-</div>
-
-<!-- S20 -->
-<div class="question-row" data-id="S20">
-  <div class="qa-block">
-    <div class="question-text">En fin de journée, la pochette de caisse doit contenir…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S20">
-    <label><input type="radio" name="S20_choice" value="A"> Fiche de caisse + Z + télécollecte + recette espèces</label>
-    <label><input type="radio" name="S20_choice" value="B"> Uniquement la recette espèces</label>
-    <label><input type="radio" name="S20_choice" value="C"> Juste le Z</label>
-  </div>
-</div>
-
-<!-- S21 -->
-<div class="question-row" data-id="S21">
-  <div class="qa-block">
-    <div class="question-text">L’outil Inpulse sert surtout à…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S21">
-    <label><input type="radio" name="S21_choice" value="A"> Gérer stocks/commandes et pertes</label>
-    <label><input type="radio" name="S21_choice" value="B"> Gérer les plannings</label>
-    <label><input type="radio" name="S21_choice" value="C"> Faire le suivi hygiène</label>
-  </div>
-</div>
-
-<!-- S22 -->
-<div class="question-row" data-id="S22">
-  <div class="qa-block">
-    <div class="question-text">Une livraison doit être rangée…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S22">
-    <label><input type="radio" name="S22_choice" value="A"> Par familles (frais/frais, sec/sec…)</label>
-    <label><input type="radio" name="S22_choice" value="B"> Comme on peut, où il reste de la place</label>
-    <label><input type="radio" name="S22_choice" value="C"> À la fin de la journée</label>
-  </div>
-</div>
-
-<!-- S23 -->
-<div class="question-row" data-id="S23">
-  <div class="qa-block">
-    <div class="question-text">Un client hésite longtemps en vitrine avec du monde derrière…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S23">
-    <label><input type="radio" name="S23_choice" value="A"> Tu proposes gentiment de faire passer la personne suivante</label>
-    <label><input type="radio" name="S23_choice" value="B"> Tu pousses le client à se dépêcher</label>
-    <label><input type="radio" name="S23_choice" value="C"> Attendre</label>
-  </div>
-</div>
-
-<!-- S24 -->
-<div class="question-row" data-id="S24">
-  <div class="qa-block">
-    <div class="question-text">Une équipe Puffy doit viser…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S24">
-    <label><input type="radio" name="S24_choice" value="A"> Entraide, constance, honnêteté</label>
-    <label><input type="radio" name="S24_choice" value="B"> Chacun pour soi</label>
-    <label><input type="radio" name="S24_choice" value="C"> Rien de spécial, c'est juste un travail</label>
-  </div>
-</div>
-
-<!-- S25 -->
-<div class="question-row" data-id="S25">
-  <div class="qa-block">
-    <div class="question-text">En cas de cookie manquant sur une commande Deliveroo déjà payée, on…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S25">
-    <label><input type="radio" name="S25_choice" value="A"> Prévient un responsable + suit la procédure app (proposer autre cookie ou réclamation)</label>
-    <label><input type="radio" name="S25_choice" value="B"> Met un autre cookie sans rien dire</label>
-    <label><input type="radio" name="S25_choice" value="C"> Ne fait rien, le client demandera un remboursement</label>
-  </div>
-</div>
-
-<!-- S26 -->
-<div class="question-row" data-id="S26">
-  <div class="qa-block">
-    <div class="question-text">Pendant un rush, si un client hésite longtemps, on peut…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S26">
-    <label><input type="radio" name="S26_choice" value="A"> Faire passer le client suivant en l’expliquant</label>
-    <label><input type="radio" name="S26_choice" value="B"> Le presser de choisir rapidement</label>
-    <label><input type="radio" name="S26_choice" value="C"> Offrir le café</label>
-  </div>
-</div>
-
-<!-- S27 -->
-<div class="question-row" data-id="S27">
-  <div class="qa-block">
-    <div class="question-text">Phrase de vente recommandée à la caisse…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S27">
-    <label><input type="radio" name="S27_choice" value="A"> “Bonjour, qu’est-ce qui vous ferait plaisir ?”</label>
-    <label><input type="radio" name="S27_choice" value="B"> “Suivant !”</label>
-    <label><input type="radio" name="S27_choice" value="C"> “À qui le tour !?”</label>
-  </div>
-</div>
-
-<!-- S28 -->
-<div class="question-row" data-id="S28">
-  <div class="qa-block">
-    <div class="question-text">Un client demande des infos allergènes que tu ne connais pas…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S28">
-    <label><input type="radio" name="S28_choice" value="A"> Tu utilises la fiche plastifiée allergènes</label>
-    <label><input type="radio" name="S28_choice" value="B"> Tu réponds “ça devrait aller”</label>
-    <label><input type="radio" name="S28_choice" value="C"> Improviser</label>
-  </div>
-</div>
-
-<!-- S29 -->
-<div class="question-row" data-id="S29">
-  <div class="qa-block">
-    <div class="question-text">En fin de service, Combo doit être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S29">
-    <label><input type="radio" name="S29_choice" value="A"> Signé</label>
-    <label><input type="radio" name="S29_choice" value="B"> Laissé ouvert</label>
-    <label><input type="radio" name="S29_choice" value="C"> Non obligatoire</label>
-  </div>
-</div>
-
-<!-- S30 -->
-<div class="question-row" data-id="S30">
-  <div class="qa-block">
-    <div class="question-text">Tu as fini ta tâche pendant un moment calme…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S30">
-    <label><input type="radio" name="S30_choice" value="A"> Tu anticipes (nettoyage, cuissons, rangement)</label>
-    <label><input type="radio" name="S30_choice" value="B"> Tu attends la prochaine commande</label>
-    <label><input type="radio" name="S30_choice" value="C"> Tu pars en pause</label>
-  </div>
-</div>
-
-<!-- S31 -->
-<div class="question-row" data-id="S31">
-  <div class="qa-block">
-    <div class="question-text">En cas d’erreur d’encaissement (CB tapée en espèces), il faut…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S31">
-    <label><input type="radio" name="S31_choice" value="A"> Corriger tout de suite et noter</label>
-    <label><input type="radio" name="S31_choice" value="B"> Laisser comme ça</label>
-    <label><input type="radio" name="S31_choice" value="C"> Refaire plus tard</label>
-  </div>
-</div>
-
-<!-- S32 -->
-<div class="question-row" data-id="S32">
-  <div class="qa-block">
-    <div class="question-text">Clôturer une caisse “fausse” pour gagner du temps…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S32">
-    <label><input type="radio" name="S32_choice" value="A"> Crée des problèmes plus graves derrière</label>
-    <label><input type="radio" name="S32_choice" value="B"> Arrange tout le monde</label>
-    <label><input type="radio" name="S32_choice" value="C"> Fait gagner du temps</label>
-  </div>
-</div>
-
-<!-- S33 -->
-<div class="question-row" data-id="S33">
-  <div class="qa-block">
-    <div class="question-text">Les cookies restants le soir doivent être…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S33">
-    <label><input type="radio" name="S33_choice" value="A"> Mis en boîte plastique blanche pour réchauffe</label>
-    <label><input type="radio" name="S33_choice" value="B"> Laissés en vitrine</label>
-    <label><input type="radio" name="S33_choice" value="C"> Jetés</label>
-  </div>
-</div>
-
-<!-- S34 -->
-<div class="question-row" data-id="S34">
-  <div class="qa-block">
-    <div class="question-text">Quand un client a beaucoup attendu…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S34">
-    <label><input type="radio" name="S34_choice" value="A"> Tu remercies pour la patience</label>
-    <label><input type="radio" name="S34_choice" value="B"> Tu fais comme si de rien n’était</label>
-    <label><input type="radio" name="S34_choice" value="C"> Ça fait partie du concept d'attendre</label>
-  </div>
-</div>
-
-<!-- S35 -->
-<div class="question-row" data-id="S35">
-  <div class="qa-block">
-    <div class="question-text">Le rôle de l’équipe face à une erreur ou un raté est…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S35">
-    <label><input type="radio" name="S35_choice" value="A"> Remonter l’info, corriger, comprendre pour ne pas reproduire</label>
-    <label><input type="radio" name="S35_choice" value="B"> Cacher l’erreur</label>
-    <label><input type="radio" name="S35_choice" value="C"> De reproduire</label>
-  </div>
-</div>
-
-<!-- S36 -->
-<div class="question-row" data-id="S36">
-  <div class="qa-block">
-    <div class="question-text">Une remarque client négative…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S36">
-    <label><input type="radio" name="S36_choice" value="A"> Sert à identifier un point à améliorer</label>
-    <label><input type="radio" name="S36_choice" value="B"> Est à ignorer</label>
-    <label><input type="radio" name="S36_choice" value="C"> Est à prendre pour soi</label>
-  </div>
-</div>
-
-<!-- S37 -->
-<div class="question-row" data-id="S37">
-  <div class="qa-block">
-    <div class="question-text">La priorité en service est…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S37">
-    <label><input type="radio" name="S37_choice" value="A"> Hygiène + qualité + constance</label>
-    <label><input type="radio" name="S37_choice" value="B"> Aller le plus vite possible, peu importe le reste</label>
-    <label><input type="radio" name="S37_choice" value="C"> Le client</label>
-  </div>
-</div>
-
-<!-- S38 -->
-<div class="question-row" data-id="S38">
-  <div class="qa-block">
-    <div class="question-text">Ton attendu avec le client…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S38">
-    <label><input type="radio" name="S38_choice" value="A"> Plaisir, gourmandise, calme</label>
-    <label><input type="radio" name="S38_choice" value="B"> Sec, expéditif, sans regard</label>
-    <label><input type="radio" name="S38_choice" value="C"> Encaisser vite</label>
-  </div>
-</div>
-
-<!-- S39 -->
-<div class="question-row" data-id="S39">
-  <div class="qa-block">
-    <div class="question-text">La meilleure attitude face à un problème récurrent…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S39">
-    <label><input type="radio" name="S39_choice" value="A"> Remonter, chercher la cause, proposer une solution</label>
-    <label><input type="radio" name="S39_choice" value="B"> S’habituer et faire avec</label>
-    <label><input type="radio" name="S39_choice" value="C"> Relativiser</label>
-  </div>
-</div>
-
-<!-- S40 -->
-<div class="question-row" data-id="S40">
-  <div class="qa-block">
-    <div class="question-text">Un client te dit “c’est trop cher”. Comment répondre correctement ?</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S40">
-    <label><input type="radio" name="S40_choice" value="A"> Expliquer calmement la qualité des produits et laisser le client décider.</label>
-    <label><input type="radio" name="S40_choice" value="B"> Baisser le prix juste pour éviter un conflit.</label>
-    <label><input type="radio" name="S40_choice" value="C"> Lui répondre que “tout est cher maintenant” pour justifier le tarif.</label>
-  </div>
-</div>
-
-<!-- S41 -->
-<div class="question-row" data-id="S41">
-  <div class="qa-block">
-    <div class="question-text">Si un client se trompe dans sa commande et s’en rend compte après coup…</div>
-  </div>
-  <div class="qcm-block" role="group" aria-label="S41">
-    <label><input type="radio" name="S41_choice" value="A"> On reformule calmement et cherche une solution simple.</label>
-    <label><input type="radio" name="S41_choice" value="B"> On refuse toute modification pour ne pas perdre de temps.</label>
-    <label><input type="radio" name="S41_choice" value="C"> On s’excuse excessivement et on offre une glace</label>
-  </div>
-</div>
+<!-- Q10 à fin -->
 
 
 
 
     <div class="btn-block">
-      <button class="save-btn" id="saveBtn">Envoyer mes réponses</button>
-      <p id="feedback"></p>
-    </div>
-  </div>
+      <!-- Bouton "Continuer" pour passer à la page suivante -->
+      <button class="save-btn" id="nextPageBtn">Continuer</button>
 
-  <footer class="footer">
-    <img src="logo-puffy.png" alt="Puffy Logo">
-  </footer>
+      <!-- Bouton final pour envoyer les réponses (uniquement sur la dernière page) -->
+      <button class="save-btn" id="submitBtn">Envoyer mes réponses</button>
+
+      <p id="feedback" class="feedback"></p>
+    </div>
+</div>
+
+
+<!-- Écran de fin d'examen -->
+<div id="end-screen" class="end-screen" style="display:none;">
+  <h2>Merci 🙌</h2>
+  <p class="end-text">
+    Merci d’avoir complété le QCM Puffy.  
+    Voici ton résultat :
+  </p>
+  <p id="end-score" class="end-score"></p>
+  <p id="end-time" class="end-time"></p>
+
+  <button id="restartBtn" class="save-btn">Répondre à nouveau</button>
+</div>
+
+
+</div> <!-- fin #app -->
+
+<!-- <footer class="footer">
+  <img src="logo-puffy.png" alt="Puffy Logo">
+</footer> -->
+
 
   <button id="scrollTopBtn" title="Remonter en haut" aria-label="Retour en haut">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1881,15 +227,35 @@
     </svg>
   </button>
 
+
+
+
+
+
 <script>
 (() => {
-  const PASSWORD = "puffy2025";
-
   // Helpers
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  // --------- chrono ---------
+  // Références des blocs
+  const app = $('#app');
+  const intro = $('#intro');
+  const questionsArea = $('#questions-area');
+  const startBtn = $('#startBtn');
+  const nextPageBtn = $('#nextPageBtn');
+  const submitBtn = $('#submitBtn');
+  const feedbackEl = $('#feedback');
+  const infosBlock = $('#infos-block');
+  const chronoBlock = $('#chrono-block');
+
+  // Écran de fin
+  const endScreen = $('#end-screen');
+  const endScoreEl = $('#end-score');
+  const endTimeEl = $('#end-time');
+  const restartBtn = $('#restartBtn');
+
+  // --------- Chrono ---------
   let chronoStart = null;
   let chronoInterval = null;
   const timerEl = $('#timer');
@@ -1898,29 +264,34 @@
     const totalSec = Math.floor(ms / 1000);
     const m = Math.floor(totalSec / 60);
     const s = totalSec % 60;
-    return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    const mm = String(m).padStart(2, '0');
+    const ss = String(s).padStart(2, '0');
+    return { mmss: `${mm}:${ss}`, totalSec };
   }
 
   function startChrono() {
-    chronoStart = Date.now();
+    if (!timerEl) return;
     if (chronoInterval) clearInterval(chronoInterval);
-    if (timerEl) timerEl.textContent = '00:00';
+    chronoStart = Date.now();
     chronoInterval = setInterval(() => {
-      if (!chronoStart) return;
-      const elapsed = Date.now() - chronoStart;
-      if (timerEl) timerEl.textContent = formatMMSS(elapsed);
+      const diff = Date.now() - chronoStart;
+      const { mmss } = formatMMSS(diff);
+      timerEl.textContent = mmss;
     }, 1000);
   }
 
   function stopChrono() {
-    if (!chronoStart) return { mmss: '00:00', ms: 0 };
-    const elapsed = Date.now() - chronoStart;
-    clearInterval(chronoInterval);
+    if (!timerEl) return { mmss: '00:00', totalSec: 0 };
+    if (!chronoStart) return { mmss: timerEl.textContent || '00:00', totalSec: 0 };
+    const diff = Date.now() - chronoStart;
+    if (chronoInterval) clearInterval(chronoInterval);
     chronoInterval = null;
-    return { mmss: formatMMSS(elapsed), ms: elapsed };
+    const { mmss, totalSec } = formatMMSS(diff);
+    timerEl.textContent = mmss;
+    return { mmss, totalSec };
   }
 
-  // QCM shuffle
+  // --------- Shuffle des propositions A/B/C ---------
   function shuffleArray(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -1928,6 +299,7 @@
     }
     return arr;
   }
+
   function shuffleAllQcm() {
     $$('.qcm-block').forEach(block => {
       const labels = $$('.qcm-block > label', block);
@@ -1935,46 +307,91 @@
     });
   }
 
-  // Login
-  const loginScreen = $('#login-screen');
-  const app = $('#app');
-  const passwordInput = $('#password-input');
-  const loginBtn = $('#login-btn');
-  const loginError = $('#login-error');
+  // --------- Multi-pages (5 questions par page) ---------
+  const allQuestions = $$('.question-row', questionsArea);
+  const QUESTIONS_PER_PAGE = 5;
+  const TOTAL_QUESTIONS = allQuestions.length;
+  const TOTAL_PAGES = Math.ceil(TOTAL_QUESTIONS / QUESTIONS_PER_PAGE);
+  let currentPage = 0; // 0 = première page
 
-  function showApp() {
-    loginScreen.style.display = 'none';
-    app.style.display = 'block';
-  }
-  function tryLogin() {
-    const val = (passwordInput?.value || '').trim();
-    if (val === PASSWORD) {
-      localStorage.setItem('puffy-examen-ok', '1');
-      loginError.style.display = 'none';
-      showApp();
-      shuffleAllQcm();
-      startChrono(); // ⏱ démarrage ici, quand l’accès aux questions s’ouvre
+  function showPage(pageIndex) {
+    currentPage = pageIndex;
+
+    allQuestions.forEach((row, idx) => {
+      const pageOfThisQuestion = Math.floor(idx / QUESTIONS_PER_PAGE);
+      row.style.display = (pageOfThisQuestion === pageIndex) ? 'grid' : 'none';
+    });
+
+    // Gestion des boutons
+    if (pageIndex < TOTAL_PAGES - 1) {
+      // Pages intermédiaires : bouton Continuer visible, Envoyer caché
+      if (nextPageBtn) nextPageBtn.style.display = 'block';
+      if (submitBtn)   submitBtn.style.display   = 'none';
     } else {
-      loginError.style.display = 'block';
+      // Dernière page : on cache Continuer et on affiche Envoyer mes réponses
+      if (nextPageBtn) nextPageBtn.style.display = 'none';
+      if (submitBtn)   submitBtn.style.display   = 'block';
     }
-  }
-  loginBtn?.addEventListener('click', tryLogin);
-  passwordInput?.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') { e.preventDefault(); tryLogin(); }
-  });
 
-  if (localStorage.getItem('puffy-examen-ok') === '1') {
-    showApp();
-    shuffleAllQcm();
-    startChrono(); // ⏱ auto-login -> démarre aussi
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Envoi
-  const saveBtn = $('#saveBtn');
-  const feedbackEl = $('#feedback');
+  // --------- Bouton "Démarrer le QCM" ---------
+  if (startBtn) {
+    startBtn.addEventListener('click', () => {
+      const prenom = ($('#prenom')?.value || '').trim();
+      const nom = ($('#nom')?.value || '').trim();
 
+      if (!prenom || !nom) {
+        if (feedbackEl) {
+          feedbackEl.textContent = "⚠️ Merci de renseigner au minimum prénom et nom avant de démarrer.";
+          feedbackEl.className = 'feedback error';
+          feedbackEl.style.display = 'block';
+        }
+        return;
+      }
+
+      if (feedbackEl) {
+        feedbackEl.textContent = "";
+        feedbackEl.style.display = 'none';
+      }
+
+      // On masque les infos générales et on affiche le bloc chrono
+      if (infosBlock) infosBlock.style.display = 'none';
+      if (chronoBlock) chronoBlock.style.display = 'grid';
+
+      // Masquer le titre principal
+      const mainTitle = $('#main-title');
+      if (mainTitle) mainTitle.style.display = 'none';
+
+
+      // Démarre le chronomètre
+      startChrono();
+
+      // Mélange les propositions A/B/C
+      shuffleAllQcm();
+
+      // Cache l'intro, affiche les questions
+      if (intro) intro.style.display = 'none';
+      if (questionsArea) questionsArea.style.display = 'block';
+
+      // Affiche la première page
+      showPage(0);
+    });
+  }
+
+  // --------- Bouton "Continuer" ---------
+  if (nextPageBtn) {
+    nextPageBtn.addEventListener('click', () => {
+      if (currentPage < TOTAL_PAGES - 1) {
+        showPage(currentPage + 1);
+      }
+    });
+  }
+
+  // --------- Envoi des réponses + écran de fin ---------
   async function collectAndSend() {
-    if (!app || app.style.display === 'none') return;
+    if (!app) return;
 
     const prenom = ($('#prenom')?.value || '').trim();
     const nom = ($('#nom')?.value || '').trim();
@@ -1991,12 +408,11 @@
       return;
     }
 
-    // ⏱ stoppe le chrono et récupère le temps (mm:ss)
+    // Stoppe le chrono et récupère le temps
     const elapsed = stopChrono();
 
     const payload = {
-      // IMPORTANT : ordre demandé → temps avant prénom (c'est géré côté serveur via entêtes)
-      temps_reponse: elapsed.mmss,   // ex: "04:17"
+      temps_reponse: elapsed.mmss,
       prenom,
       nom,
       etablissement,
@@ -2005,58 +421,125 @@
       __labels: {}
     };
 
+    let scoreClient = 0;
+    let totalQuestions = 0;
+
     $$('.question-row').forEach(row => {
       const id = row.getAttribute('data-id');
       const qText = $('.question-text', row)?.innerText?.trim() || id;
       const checked = $(`input[name="${id}_choice"]:checked`, row);
-      payload[`${id}_choice`] = checked ? checked.value : '';
+      const value = checked ? checked.value : '';
+
+      payload[`${id}_choice`] = value;
       payload.__labels[`${id}_choice`] = qText;
+
+      totalQuestions++;
+      if (value === 'A') scoreClient++;
     });
 
     try {
       const res = await fetch('/api/save', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
 
-      if (res.ok) {
-        if (feedbackEl) {
-          feedbackEl.textContent = `✅ Réponses envoyées. Merci ${prenom} ${nom} ! (Temps: ${payload.temps_reponse})`;
-          feedbackEl.className = 'feedback success';
-          feedbackEl.style.display = 'block';
-        }
-        // reset radios
-        $$('.qcm-block input[type="radio"]').forEach(r => r.checked = false);
-        // remélange + (optionnel) relancer un chrono si la même personne enchaîne un autre QCM
-        setTimeout(() => {
-          shuffleAllQcm();
-          // startChrono(); // <- décommente si tu veux relancer un nouveau chrono pour un 2e envoi
-          if (timerEl) timerEl.textContent = '00:00'; // on laisse à 00:00 une fois envoyé
-        }, 400);
-      } else {
-        if (feedbackEl) {
-          feedbackEl.textContent = `❌ Erreur à l’enregistrement.`;
-          feedbackEl.className = 'feedback error';
-          feedbackEl.style.display = 'block';
-        }
+      if (!res.ok) {
+        throw new Error(`Erreur HTTP ${res.status}`);
       }
-    } catch (e) {
-      console.error(e);
+
+      // On lit la réponse pour ne pas laisser de promesse pendante (même si on ne s'en sert pas)
+      await res.json();
+
+      // On n'affiche plus le feedback de succès ici, on passe à l'écran de fin
       if (feedbackEl) {
-        feedbackEl.textContent = `❌ Erreur réseau.`;
+        feedbackEl.textContent = '';
+        feedbackEl.style.display = 'none';
+      }
+
+      // Masquer questions et chrono
+      if (questionsArea) questionsArea.style.display = 'none';
+      if (chronoBlock) chronoBlock.style.display = 'none';
+
+      // Afficher l'écran de fin avec score + temps
+      if (endScreen) {
+        if (endScoreEl) {
+          endScoreEl.textContent = `Ton score : ${scoreClient} / ${totalQuestions}`;
+        }
+        if (endTimeEl) {
+          endTimeEl.textContent = `Temps réalisé : ${elapsed.mmss}`;
+        }
+        endScreen.style.display = 'block';
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    } catch (err) {
+      console.error(err);
+      if (feedbackEl) {
+        feedbackEl.textContent = '❌ Une erreur est survenue lors de la sauvegarde.';
         feedbackEl.className = 'feedback error';
         feedbackEl.style.display = 'block';
       }
     }
   }
 
-  saveBtn?.addEventListener('click', (e) => {
-    e.preventDefault();
-    collectAndSend();
-  });
+  if (submitBtn) {
+    submitBtn.addEventListener('click', collectAndSend);
+  }
 
-  // bouton retour haut (si présent)
+  // --------- Reset / Recommencer le QCM ---------
+  function resetExamForNewRun() {
+    // Reset chrono
+    if (chronoInterval) {
+      clearInterval(chronoInterval);
+      chronoInterval = null;
+    }
+    chronoStart = null;
+    if (timerEl) timerEl.textContent = '00:00';
+
+    // Vider les champs infos générales
+    if ($('#prenom')) $('#prenom').value = '';
+    if ($('#nom')) $('#nom').value = '';
+    if ($('#etablissement')) $('#etablissement').value = '';
+    if ($('#poste')) $('#poste').value = '';
+    if ($('#date')) $('#date').value = '';
+
+    // Décocher toutes les réponses
+    $$('.qcm-block input[type="radio"]').forEach(r => { r.checked = false; });
+
+    // Masquer écran de fin, chrono, questions
+    if (endScreen) endScreen.style.display = 'none';
+    if (chronoBlock) chronoBlock.style.display = 'none';
+    if (questionsArea) questionsArea.style.display = 'none';
+
+    // Réafficher les infos générales + intro
+    if (infosBlock) infosBlock.style.display = '';
+    if (intro) intro.style.display = 'block';
+
+    // Réafficher le titre principal
+    const mainTitle = $('#main-title');
+    if (mainTitle) mainTitle.style.display = '';
+
+    // Réinitialiser pagination
+    currentPage = 0;
+
+    // (optionnel) remélanger les QCM pour la prochaine session
+    shuffleAllQcm();
+
+    if (feedbackEl) {
+      feedbackEl.textContent = '';
+      feedbackEl.style.display = 'none';
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  if (restartBtn) {
+    restartBtn.addEventListener('click', resetExamForNewRun);
+  }
+
+  // --------- Bouton retour en haut ---------
   const scrollBtn = $('#scrollTopBtn');
   if (scrollBtn) {
     window.addEventListener('scroll', () => {
@@ -2068,7 +551,3 @@
   }
 })();
 </script>
-
-
-</body>
-</html>
