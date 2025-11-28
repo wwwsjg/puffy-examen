@@ -74,20 +74,7 @@ label {
   padding: 6px 9px; font-size: 0.85rem; width: 100%; font-family: var(--body-font);
 }
  
-/* Chrono */
-.timer-box {
-  font-weight: 600;
-  font-size: 0.9rem;
-  background: rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  border-radius: 10px;
-  padding: 6px 10px;
-  display: inline-block;
-  min-width: 90px;
-  text-align: center;
-  letter-spacing: 0.02em;
-  font-variant-numeric: tabular-nums;
-}
+
 
 /* questions — grid 2 colonnes (question + QCM) */
 .question-row {
@@ -154,18 +141,24 @@ label {
   background: var(--puffy-bg);
 }
 
+.btn-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px; /* espace entre les boutons */
+  margin-top: 30px;
+}
 
-/* bouton enregistrer */
+
 .save-btn {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+  display: inline-flex;     /* <--- essentiel */
   align-items: center;
   justify-content: center;
+  text-align: center;
+
   background-color: var(--puffy-accent);
   color: #fff;
-  padding: 10px 10px;
+  padding: 10px 14px;
   border-radius: 14px;
   border: 2px solid var(--puffy-accent-dark);
   cursor: pointer;
@@ -173,8 +166,8 @@ label {
   text-transform: uppercase;
   box-shadow: -3px 3px 0 0 var(--puffy-accent-dark);
   transition: all 0.12s ease;
-  margin-top: 30px;
 }
+
 
 .save-btn:hover { box-shadow: -2px 2px 0 0 var(--puffy-accent-dark); transform: translateY(1px); }
 .save-btn:active { box-shadow: 0 0 0 0 var(--puffy-accent-dark); transform: translateY(2px); }
@@ -202,12 +195,12 @@ label {
 .end-text {
   margin-top: 0;
   margin-bottom: 10px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--puffy-muted);
 }
 
 .end-score {
-  font-size: 1.1rem;
+  color: var(--puffy-text);
   font-weight: 600;
 }
 
@@ -215,6 +208,73 @@ label {
   font-size: 0.9rem;
   color: var(--puffy-muted);
 }
+
+/* Chrono */
+.timer-box {
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+  padding: 6px 10px;
+  display: inline-block;
+  min-width: 90px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.chrono-block {
+  margin-top: 39px;
+  margin-bottom: 18px;
+}
+
+.chrono-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+}
+
+.chrono-label {
+  font-size: 0.75rem;
+  color: var(--puffy-muted);
+  margin-bottom: 3px;
+  display: block;
+}
+
+
+/* Barre de progression */
+.progress-wrapper {
+  margin-bottom: 10px;
+}
+
+/* Texte "Page X / Y" */
+.progress-text {
+  font-size: 0.75rem;
+  color: var(--puffy-muted);
+  margin-bottom: 3px;
+  display: block;
+}
+
+/* Rail de la barre */
+.progress-track {
+  width: 100%;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+/* Remplissage */
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--puffy-muted);
+  transition: width 0.25s ease-out;
+}
+
+
 
 
 /* Bouton retour en haut */
@@ -235,3 +295,4 @@ label {
   body { padding: 0 6px 60px; }
   .login-screen { margin: 30px auto; }
 }
+
